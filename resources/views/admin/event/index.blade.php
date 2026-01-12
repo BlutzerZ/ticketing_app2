@@ -156,7 +156,7 @@
     </dialog>
 
     <!-- Delete Ticket Modal -->
-    <dialog id="delete_modal" class="modal">
+    <dialog id="delete_ticket_modal" class="modal">
         <form method="POST" class="modal-box">
             @csrf
             @method('DELETE')
@@ -167,7 +167,7 @@
             <p>Apakah Anda yakin ingin menghapus ticket ini?</p>
             <div class="modal-action">
                 <button class="btn btn-primary" type="submit">Hapus</button>
-                <button class="btn" onclick="delete_modal.close()" type="reset">Batal</button>
+                <button class="btn" onclick="delete_ticket_modal.close()" type="reset">Batal</button>
             </div>
         </form>
     </dialog>
@@ -202,10 +202,10 @@
         function openDeleteModal(button) {
             const id = button.dataset.id;
             const form = document.querySelector('#delete_modal form');
-            document.getElementById("delete_ticket_id").value = id;
+            document.getElementById("delete_event_id").value = id;
 
             // Set action dengan parameter ID
-            form.action = `/admin/tickets/${id}`;
+            form.action = `/admin/events/${id}`;
             delete_modal.showModal();
         }
 
